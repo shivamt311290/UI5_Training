@@ -17,12 +17,11 @@ sap.ui.define([
                 ]
             };
             // var oModel = new JSONModel();
-            var oModel = this.getOwnerComponent().getModel();
+            var oModel = this.getView().getModel();
             
             oModel.setData(oData);
 
-            this.getView().setModel(oModel);
-            this.getView().setModel
+            this.getView().setModel(oModel); 
         },
         calculate: function () {
             const input1 = this.getView().getModel().getData().field1;
