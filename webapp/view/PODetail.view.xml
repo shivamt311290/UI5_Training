@@ -1,0 +1,17 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="MyApp_shiv.controller.PODetail" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+    <VBox>
+		<f:SimpleForm
+			layout="ResponsiveGridLayout"
+			title="Demo" >
+			<f:content>
+				<Label text="{i18n>poNumber}" />
+				<Input id="value1" value="{poNumber}" />
+				<Label text="{i18n>name}" />
+				<Input id="value2" value="{name}" />			
+				<Label text="{i18n>description}" />
+				<Text text="{description}"/>
+			</f:content>
+		</f:SimpleForm>
+        <Button text="{i18n>goback}" press="gotoPO"/>		
+    </VBox>
+</mvc:View>

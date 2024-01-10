@@ -1,14 +1,19 @@
 {
     "_version": "1.30.0",
     "sap.app": {
-        "id": "MyApp",
+        "id": "MyApp_shiv",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
             "version": "1.0.0"
         },
         "title": "{{appTitle}}",
-        "description": "{{appDescription}}"
+        "description": "{{appDescription}}",
+        "sourceTemplate": {
+            "id": "@sap/ux-app-migrator:freestyle",
+            "version": "1.12.1",
+            "toolsId": "80097914-2e64-412b-9d82-9718fa117119"
+        }
     },
     "sap.ui": {
         "technology": "UI5",
@@ -32,9 +37,35 @@
     },
     "sap.ui5": {
         "rootView": {
-            "viewName": "MyApp.view.MyView",
-            "type": "XML",
-            "async": true
+            "viewName": "MyApp_shiv.view.App",
+            "type": "XML"
+        },
+        "routing": {
+            "config":{
+                "routerClass": "sap.m.routing.Router",
+                "controlId": "root",
+                "controlAggregation": "pages",
+                "viewType": "XML",
+                "viewPath": "MyApp_shiv.view"
+            },
+            "routes":[{
+                "pattern": "",
+                "name": "Home",
+                "target":"home"
+            },
+            {
+                "pattern": "PODetail/{line}",
+                "name": "Detail",
+                "target":"DetailTarget"
+            }],
+            "targets": {
+                "home":{
+                    "viewName": "POList"
+                },
+                "DetailTarget":{
+                    "viewName": "PODetail"
+                }
+            }
         },
         "dependencies": {
             "minUI5Version": "1.60.0",
@@ -46,12 +77,12 @@
         "models": {
             "": {
                 "type": "sap.ui.model.json.JSONModel",
-                "uri": "model/data.json"
+                "uri":"model/sampleData.json"
             },
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "MyApp.i18n.i18n"
+                    "bundleName": "MyApp_shiv.i18n.i18n"
                 }
             }
         }

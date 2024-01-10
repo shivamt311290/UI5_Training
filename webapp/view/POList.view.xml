@@ -1,0 +1,46 @@
+<mvc:View
+    controllerName="MyApp_shiv.controller.POList"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+>
+    <Page showHeader="false">
+        <l:VerticalLayout>
+            <ObjectHeader title="Purchase Orders">
+                <attributes>
+                    <ObjectAttribute text="Total POs: {/myPOs/length}" />
+                </attributes>
+            </ObjectHeader>
+            <Table
+                id="poTable"
+                items="{/myPOs}"
+            >
+                <columns>
+                    <Column>
+                        <Text text="{i18n>poNumber}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>description}" />
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>amount}" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem
+                        type="Active"
+                        press="gotoPODetail"
+                    >
+                        <cells>
+                            <Text text="{poNumber}" />
+                            <Text text="{description}" />
+                            <Text
+                                text="{path : 'totalAmount', formatter: '.formatter.decimalFormat'}"
+                            />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </l:VerticalLayout>
+    </Page>
+</mvc:View>
