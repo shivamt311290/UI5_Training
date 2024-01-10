@@ -1,0 +1,16 @@
+<core:FragmentDefinition  xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+<f:SimpleForm layout="ResponsiveGridLayout" title="Demo" >
+			<f:content>
+				<Label text="{i18n>poNumber}" />
+				<Input id="value1" value="{poNumber}" />
+				<Label text="{i18n>name}" />
+				<Input id="value2" value="{name}" />			
+				<Label text="{i18n>description}" />
+				<Text text="{description}"/>
+				<Label text="{i18n>TotalAmount}" />
+				<Text text="{=${totalAmount} + 100}"/>
+				<Label text="{i18n>higherthan2000}" />
+				<Text text="{= ${totalAmount} > 2000 ? 'High' : 'Low' }" />
+			</f:content>
+	</f:SimpleForm>
+</core:FragmentDefinition>

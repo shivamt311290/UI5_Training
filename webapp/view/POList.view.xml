@@ -25,6 +25,15 @@
                     <Column>
                         <Text text="{i18n>amount}" />
                     </Column>
+                     <Column>
+                        <Text text="{i18n>FormattedInp}" />
+                    </Column>
+                     <Column>
+                        <Text text="{i18n>UnformattedInp}" />
+                    </Column>
+                    <Column>
+                    <Button text="Detail"></Button>
+                    </Column>
                 </columns>
                 <items>
                     <ColumnListItem
@@ -33,10 +42,17 @@
                     >
                         <cells>
                             <Text text="{poNumber}" />
-                            <Text text="{description}" />
+                            <Text text="{description} {currency}" />
                             <Text
-                                text="{path : 'totalAmount', formatter: '.formatter.decimalFormat'}"
+                                text="{parts : ['totalAmount', 'currency'], formatter: '.formatter.decimalFormat'}"
                             />
+                            <Input
+                                value="{parts : ['totalAmount', 'currency'], formatter: '.formatter.decimalFormat'}"
+                            />
+                            <Input
+                                value="{totalAmount}"
+                            />
+                            <Button text="Detail"></Button>
                         </cells>
                     </ColumnListItem>
                 </items>
