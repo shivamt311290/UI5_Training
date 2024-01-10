@@ -6,3 +6,5 @@
 ### Remove JSON model declaration from controller
 ### Specify i18n, JSON model in manifest
 ### Specify rootView in manifest
+# UI5_Training
+UI5 training 
